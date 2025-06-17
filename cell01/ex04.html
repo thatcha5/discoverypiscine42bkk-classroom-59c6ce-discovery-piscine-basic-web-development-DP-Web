@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basics</title>
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 3em;
+      margin: 30px 0;
+    }
+
+    .images {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .shop {
+      text-align: center;
+    }
+    .shop img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover; /* ทำให้ภาพไม่บิดเบี้ยวขณะปรับขนาด */
+      border-radius: 10px;
+    }
+
+    hr {
+      margin-top: 40px;
+      border: 1px solid black;
+    }
+
+    .footer {
+      text-align: right;
+      font-family: monospace;
+      font-style: italic;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- หัวข้อใหญ่ -->
+  <h1>✨</h1>
+
+  <!-- รูปภาพร้านค้าออนไลน์ 2 รูป -->
+  <div class="images">
+    <div class="shop">
+      <img src="https://pngimg.com/uploads/ebay/ebay_PNG18.png" alt="Shop 1">
+      <div><a href="https://www.ebay.com/">Visit Shop 1</a></div>
+    </div>
+    <div class="shop">
+      <img src="https://www.popticles.com/wp-content/uploads/2024/04/Amazon_The_Most_Valuable_Brands_2023.jpg" alt="Shop 2">
+      <div><a href="https://www.amazon.com/">Visit Shop 2</a></div>
+    </div>
+  </div>
+
+  <!-- เส้นคั่น -->
+  <hr>
+
+  <!-- ลิขสิทธิ์ด้านล่าง -->
+  <div class="footer">© wil 2021</div>
+
+</body>
+</html>
