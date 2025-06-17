@@ -1,0 +1,52 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 100vw;
+  height: 100vh;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+  font-size: 2vw;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+  border: 1px solid #fff;
+}
+
+.cell1 { background-color: #FCFAF2; }
+.cell2 { background-color: #F9F1E5; }
+.cell3 { background-color: #E9D0CB; }
+.cell4 { background-color: #DDB2B1; }
+.cell5 { background-color: #C89091; }
+
+/* Responsive fallback: stack cells vertically on small screens */
+@media (max-width: 600px) {
+  table, tbody, tr {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  td {
+    display: block;
+    width: 100%;
+    height: 20vh;
+    font-size: 5vw;
+    box-sizing: border-box;
+  }
+}
