@@ -1,0 +1,85 @@
+/* เพิ่มพื้นหลังสีเบาๆ เพื่อทำให้การ์ดโดดเด่น */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #eef2f5; /* เพิ่มพื้นหลังเบา ๆ */
+}
+
+.profile-card {
+  background-color: #fff;
+  border-radius: 20px; /* ให้ขอบการ์ดมน ๆ */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* เงาที่เบาบาง */
+  width: 350px; /* ทำให้การ์ดกว้างขึ้น */
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out; /* เพิ่ม transition สำหรับเอฟเฟกต์ */
+}
+
+.profile-card:hover {
+  transform: scale(1.05); /* ขยายการ์ดเล็กน้อยเมื่อ hover */
+}
+
+.profile-card h1 {
+  font-size: 24px; /* ขนาดตัวอักษรหัวข้อใหญ่ขึ้น */
+  margin-bottom: 20px;
+  color: #333; /* สีของตัวอักษร */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px; /* เพิ่มระยะห่างภายใน cell */
+}
+
+.profile-img {
+  width: 120px; /* ขยายขนาดรูปภาพ */
+  height: 120px; 
+  border-radius: 50%; /* ให้รูปภาพเป็นวงกลม */
+  border: 4px solid #007bff; /* กรอบสีน้ำเงินรอบ ๆ รูปภาพ */
+}
+
+.username {
+  font-weight: bold;
+  font-size: 18px; /* ขนาดชื่อใหญ่ขึ้น */
+  color: #007bff; /* สีของชื่อ */
+}
+
+.description {
+  font-size: 16px;
+  color: #555; /* สีข้อความที่เบากว่า */
+  margin-top: 5px;
+}
+
+.social-media img {
+  width: 40px; /* ขนาดไอคอนโซเชียลมีเดียใหญ่ขึ้น */
+  margin: 0 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-media img:hover {
+  transform: scale(1.1); /* ขยายขนาดไอคอนเมื่อ hover */
+}
+
+.contact-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 16px; /* ขนาดตัวอักษรในปุ่ม */
+  transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #0056b3; /* เปลี่ยนสีเมื่อ hover */
+}
