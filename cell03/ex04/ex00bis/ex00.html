@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Random Background</title>
+  <link rel="stylesheet" href="https://1drv.ms/u/c/4831efc1b483a67f/EZddqTXamHNGkhnLNQfEN00BPBRw2vNkJct9jHfIhKCyGA?e=DYiRhT">
+</head>
+<body>
+
+  <button onclick="changeBackground()">Change Background Color</button>
+
+  <script>
+    function getRandomColor() {
+      // สร้างสีในรูปแบบ #RRGGBB
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function changeBackground() {
+      document.body.style.backgroundColor = getRandomColor();
+    }
+  </script>
+
+</body>
+</html>

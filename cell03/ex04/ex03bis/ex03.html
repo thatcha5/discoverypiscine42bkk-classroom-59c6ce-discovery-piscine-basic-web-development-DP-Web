@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini To Do List</title>
+  <style>
+    body {
+      background: #acfade;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin-top: 60px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 32px 24px 24px 24px;
+      min-width: 320px;
+      max-width: 400px;
+    }
+    #new-btn {
+      padding: 10px 28px;
+      border-radius: 10px;
+      border: none;
+      background: #dffaac;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 18px;
+      transition: background 0.2s;
+    }
+    #new-btn:hover {
+      background: ;
+    }
+    #ft_list {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 10px;
+      min-height: 40px;
+    }
+    .todo {
+      background: ##bdfaac;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 1.08em;
+      color: #222;
+      cursor: pointer;
+      transition: background 0.18s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      word-break: break-word;
+    }
+    .todo:hover {
+      background: #ffadc0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button id="new-btn">New</button>
+    <div id="ft_list"></div>
+  </div>
+  <script>
+    // Cookie helpers
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+    }
+    function getCookie(name) {
+      const value = "; " + document.cookie;
+      const parts = value.split("; " + name + "=");
+      if (parts.length === 2) return decodeURIComponent(parts.pop().split(";").shift());
+      return "";
+    }
+
+    // DOM & logic
+    const ft_list = document.getElementById('ft_list');
+    const newBtn = document.getElementById('new-btn');
+
+    function saveTodos() {
+      const todos = [];
+      ft_list.querySelectorAll('.todo').forEach(div => todos.push(div.textContent));
+      setCookie('todo_list', JSON.stringify(todos), 365);
+    }
+
+    function loadTodos() {
+      const data = getCookie('todo_list');
+      if (data) {
+        try {
+          const todos = JSON.parse(data);
+          todos.forEach(text => addTodo(text, false));
+        } catch {}
+      }
+    }
+
+    function addTodo(text, save = true) {
+      if (!text) return;
+      const div = document.createElement('div');
+      div.className = 'todo';
+      div.textContent = text;
+      div.onclick = function() {
+        if (confirm('Do you want to remove this TO DO?')) {
+          div.remove();
+          saveTodos();
+        }
+      };
+      ft_list.appendChild(div);
+      if (save) saveTodos();
+    }
+
+    newBtn.onclick = function() {
+      const text = prompt('Enter your new TO DO:');
+      if (text && text.trim() !== '') {
+        addTodo(text.trim());
+      }
+    };
+
+    // On load
+    loadTodos();
+  </script>
+</body>
+</html>

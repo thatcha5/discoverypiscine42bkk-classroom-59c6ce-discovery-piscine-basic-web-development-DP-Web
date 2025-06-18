@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>It's over 9000</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #acf5fa, #faacd5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    input, select, button {
+      font-size: 1rem;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #acd2fa;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #acbefa;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="number" id="left" placeholder="Enter first number" min="0" />
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="number" id="right" placeholder="Enter second number" min="0" />
+    <br />
+    <button onclick="calculate()">Try me!</button>
+  </div>
+
+  <script>
+    function calculate() {
+      const left = document.getElementById('left').value;
+      const right = document.getElementById('right').value;
+      const operator = document.getElementById('operator').value;
+
+      const num1 = parseInt(left);
+      const num2 = parseInt(right);
+
+      if (isNaN(num1) || isNaN(num2) || num1 < 0 || num2 < 0) {
+        alert("Error 🙁");
+        return;
+      }
+
+      if ((operator === "/" || operator === "%") && num2 === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return;
+      }
+
+      let result;
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          result = num1 / num2;
+          break;
+        case '%':
+          result = num1 % num2;
+          break;
+      }
+
+      alert("Result: " + result);
+      console.log("Result: " + result);
+    }
+
+    // Alert ทุกๆ 30 วินาที
+    setInterval(() => {
+      alert("Please, use me...");
+    }, 30000);
+  </script>
+</body>
+</html>
